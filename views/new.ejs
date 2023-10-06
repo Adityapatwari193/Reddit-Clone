@@ -1,0 +1,40 @@
+<% layout('/layouts/boilerplate') %>
+
+  
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the input field */
+        input[type="text"] {
+            width: 50%; /* Adjust the width as needed */
+            padding: 5px; /* Adjust the padding as needed */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Adjust the font size as needed */
+        }
+
+        /* Style for the button */
+        button {
+            background-color: green; /* Set the button background color to green */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/r/createcommunity" method="POST">
+        <label for="title">Enter the community name</label>
+        <input type="text" name="reddit[title]" id="title">
+        
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+

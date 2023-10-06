@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card with Image Carousel</title>
+
+    <style>
+        .card {
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-button {
+            cursor: pointer;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 class="card-title">Card Title</h2>
+        <div class="carousel">
+            <img src="views\five.jpeg" alt="Image 1">
+        </div>
+        <div>
+            <span class="carousel-button">&#10094;</span>
+            <span class="carousel-button">&#10095;</span>
+        </div>
+    </div>
+</body>
+</html>

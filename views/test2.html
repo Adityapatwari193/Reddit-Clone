@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Clone Post</title>
+    <style>
+        /* Basic CSS styling for the carousel */
+        .carousel-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-footer {
+            background-color: #f5f5f5;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <h1>Header Text</h1>
+
+        <div class="carousel">
+            <img src="D:\Project\Reddit Clone\views\five.jpeg" alt="Image 1">
+        </div>
+
+        <div class="carousel-footer">
+            <p>Footer Text</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for creating a simple image carousel
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+
+        let currentIndex = 0;
+        const intervalTime = 3000; // Time between image changes (in milliseconds)
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            images.forEach((image, index) => {
+                if (index === currentIndex) {
+                    image.style.display = 'block';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+        }
+
+        setInterval(nextImage, intervalTime);
+        updateCarousel();
+    </script>
+</body>
+</html>

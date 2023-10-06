@@ -1,0 +1,32 @@
+<% layout('/layouts/boilerplate') %>
+
+
+
+
+
+
+<div class="row">
+    <h1 class="text-left">Channel <%= community.title %></h1>
+    <h2 class="text-center">Create a new Post</h2>
+    <div class="col-md-6 offset-md-3">
+        <form action="/r/rendershowpage/<%= community._id %>/createpost" method="POST" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label class="form-label" for="title">Enter the Title</label>
+                <input class="form-control" type="text" id="title" name="post[title]" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="image">Select Image(s)</label>
+                <div class="form-file custom-file">
+                    <input type="file" class="form-control custom-file-input" id="image" name="image" multiple>
+                    <label class="custom-file-label" for="image">Choose file</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-success">Submit</button>
+            </div>
+        </form>
+        <a href="/r/index">View Communities</a>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<% layout('/layouts/boilerplate') %>
+
+<head>
+    
+    <style>
+        /* Style for the header */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        /* Style for individual comments */
+        .comment {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        /* Style for the "Delete" button */
+        .delete-button {
+            background-color: #ff5555;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Style for the "Delete" button on hover */
+        .delete-button:hover {
+            background-color: #ff0000;
+        }
+
+        /* Style for the links */
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            text-decoration: none;
+            color: #007bff;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Read Comments</h1>
+    <% for(let com of findc){ %>
+        <div class="comment">
+            <p><%= com.title %></p>
+            <% if (currentUser && comm.author.equals(currentUser._id)) { %>
+                <form action="/r/<%= posts._id %>/deletecomment/<%= com._id %>?_method=DELETE" method="POST">
+                    <button class="delete-button">Delete</button>
+                </form>
+            <% } %>
+        </div>
+    <% } %>
+<div class="footera">
+    <a href="/r/comments/<%= posts._id %>/createcomment">Create comment</a>
+    <a href="/r/rendershowpage/<%= yy %>">Back</a>
+</div>
+</body>
+
+
+
+    

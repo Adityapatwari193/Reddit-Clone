@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Todos</title>
+
+    <style>
+        .container {
+            max-width: 800px; /* Set the maximum width for the container */
+            margin: 0 auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-top: 1px solid #ccc; /* Add border above */
+            border-bottom: 1px solid #ccc; /* Add border below */
+        }
+
+        
+        .btn {
+            text-decoration: none;
+            padding: 10px 15px; /* Adjust padding to make the button smaller */
+            margin: 0; /* Remove any margin */
+            border: 1px solid #333;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 3px;
+            display: block; /* Make the button a block element */
+            text-align: center;
+            font-size: 12px; /* Adjust font size to make it smaller */
+            width: 50px; /* Remove fixed width to make the button fit content */
+            margin-left:570px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the leftmost cell containing todo.description */
+        .description-cell {
+            text-align: left; /* Align text to the left */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Todos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="description-cell">${todo.description}</td>
+                    <td><a href="update-todo?id=${todo.id}" class="btn btn-success">Update</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<% layout('/layouts/boilerplate') %>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Clone Post</title>
+  <style>
+      /* Basic CSS styling for the carousel */
+      .carousel-container {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+          text-align: center;
+          margin-top: 6px;
+          margin-bottom:20px;
+          border:1px solid rgb(56, 53, 53);
+      }
+
+      .carousel {
+          display: flex;
+          overflow: hidden;
+          border: 2px solid #e3d7d7;
+      }
+
+      .carousel img {
+          width: 100%;
+          height: auto;
+      }
+
+      .carousel-footer {
+          background-color: #f5f5f5;
+          padding: 3px;
+      }
+
+      .carousel-header {
+          background-color: #f5f5f5;
+          padding: 0px;
+          border-bottom: 1px solid black;
+      }
+      .owner{
+        text-align: left;
+      }
+
+      .text{
+        text-align: left;
+        margin-left:15px;
+      }
+ .right{
+  text-align: right;
+ }
+
+ .circular-button {
+  display: inline-block;
+  padding: 3px 7px; /* Adjust the padding as needed */
+  border-radius: 50%; /* Makes it circular */
+  background-color: rgb(85, 197, 245); /* Sets the background color to blue */
+  color: white; /* Sets the text color to white */
+  text-decoration: none; /* Removes underline from the text */
+}
+
+.circular-button:hover {
+  background-color: rgb(187, 187, 197); /* Change color on hover if desired */
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <h2> Channel <%=community.title %> created by <%=hh%></h2>
+  <div class="right">
+    <% if( currentUser && community.author.equals(currentUser._id)){ %>
+      <a href="/r/rendershowpage/<%=community._id%>/createpost" class="cp circular-button">Create a post &#10133;</a>
+
+      <% } %>
+      <br>
+      <a href="/r/index" class="home circular-button">Home 🏠</a>
+
+  </div>
+  
+<% if(post.length>0) {%>
+  <% post.forEach(post => { %>
+  <div class="carousel-container">
+      <div class="carousel-header">
+        <h6 class="owner">Posted by <%=hh%></h6>
+        <h2 class="text"> <%=post.title %></h2>
+      </div>
+      <% post.images.forEach(image => { %>
+
+      <div class="carousel">
+          <img src="<%= image.url %>" alt="<%= image.filename %>">
+      </div>
+      <% }); %>
+
+      <div class="carousel-footer">
+        <button><a href="/r/comments/<%=post._id%>/createcomment">Leave A Comment</a></button>
+        <a href="/r/<%=post._id%>/showcomments">See comments</a>
+      </div>
+  </div>
+  <% }); %>
+  <% } %>
+  <% if(post.length===0 ) { %>
+    <p>No posts yet</p>
+    <% } %>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
